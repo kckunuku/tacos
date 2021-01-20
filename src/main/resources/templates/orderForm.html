@@ -87,12 +87,12 @@
     <!-- tag::allButValidation[] -->
     <br/>
 
-    <label for="ccCVV">CVV: </label>
-    <input type="text" th:field="*{ccCVV}"/>
+    <label for="ccVV">CVV: </label>
+    <input type="text" th:field="*{ccVV}"/>
     <!-- end::allButValidation[] -->
     <span class="validationError"
-          th:if="${#fields.hasErrors('ccCVV')}"
-          th:errors="*{ccCVV}">CC Num Error</span>
+          th:if="${#fields.hasErrors('ccVV')}"
+          th:errors="*{ccVV}">CC Num Error</span>
     <!-- tag::allButValidation[] -->
     <br/>
 
