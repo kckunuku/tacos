@@ -1,4 +1,4 @@
-package com.kckunuku.tacos;
+package com.kckunuku.tacos.web;
 
 import com.kckunuku.tacos.domain.Order;
 import lombok.extern.slf4j.Slf4j;
@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -22,9 +23,9 @@ public class OrderController {
     }
 
     @PostMapping
-    public String processOrder(@Valid Order order, Errors errors) {
+    public String processOrder(@Valid @ModelAttribute("order") Order order, Errors errors) {
         if(errors.hasErrors()){
-            return "/orders/current";
+            return "orderForm";
         }
         log.info("order submitted : " + order);
         return "redirect:/";
