@@ -1,8 +1,12 @@
 package com.kckunuku.tacos;
 
+import com.kckunuku.tacos.data.IngredientRepository;
+import com.kckunuku.tacos.data.OrderRepository;
+import com.kckunuku.tacos.data.TacoRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.containsString;
@@ -16,6 +20,15 @@ class HomeControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
+
+    @MockBean
+    private IngredientRepository ingredientRepository;
+
+    @MockBean
+    private TacoRepository tacoRepository;
+
+    @MockBean
+    private OrderRepository orderRepository;
 
     @Test
     public void testHomePage() throws Exception {
